@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class MainContextView : ContextView
 {
+    [SerializeField]
+    private GameObject BackgroundPrefab;
+
     void Start()
     {
-        var context = new MainContext(this);
+        MainContext context = new MainContext(this, BackgroundPrefab.GetComponent<Background>());
         context.Start();
     }
 }
